@@ -1,10 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 // import auth from "@react-native-firebase/auth";
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-} from "@react-native-google-signin/google-signin";
+// import {
+//   GoogleSignin,
+//   GoogleSigninButton,
+// } from "@react-native-google-signin/google-signin";
 
 import {
   Center,
@@ -27,11 +27,11 @@ type LoginStackNavigationProp = NativeStackNavigationProp<
   "signup"
 >;
 
-GoogleSignin.configure({
-  webClientId:
-    "27550352723-99o15re9mgko4mt8i4j8eq7094hd6901.apps.googleusercontent.com",
-  scopes: ["https://www.googleapis.com/auth/drive.readonly"],
-});
+// GoogleSignin.configure({
+//   webClientId:
+//     "27550352723-99o15re9mgko4mt8i4j8eq7094hd6901.apps.googleusercontent.com",
+//   scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+// });
 
 
 export default function LoginScreen() {

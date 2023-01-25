@@ -24,11 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.systemscripts.prixgp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["@react-native-google-signin/google-signin"]
+    "extra": {
+      "eas": {
+        "projectId": "dfa6a4f7-687e-4c36-9750-574624753963"
+      }
+    }
   }
 }
