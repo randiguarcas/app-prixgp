@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -34,6 +35,15 @@
       "eas": {
         "projectId": "dfa6a4f7-687e-4c36-9750-574624753963"
       }
-    }
+    },
+    "plugins": [
+      "@react-native-google-signin/google-signin", 
+      ["react-native-fbsdk-next", 
+      {
+        "appID": "555780243152892",
+        "clientToken": "fb29a6f3efc375ddb5a9f8884f298354",
+        "displayName": "PrixGP"
+      }]
+    ]
   }
 }
