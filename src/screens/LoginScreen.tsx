@@ -1,28 +1,14 @@
-import { useNavigation } from "@react-navigation/native";
+import { Text, Button, TextInput, View, StyleSheet } from "react-native";
+import { SocialIcon } from "@rneui/themed";
+import LoginForm from "../components/LoginForm";
+
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import auth from "@react-native-firebase/auth";
 import {
   GoogleSignin,
-  GoogleSigninButton,
   statusCodes,
 } from "@react-native-google-signin/google-signin";
-import {
-  LoginManager,
-  AccessToken,
-  LoginButton,
-} from "react-native-fbsdk-next";
-import {
-  Center,
-  Box,
-  Heading,
-  VStack,
-  FormControl,
-  Link,
-  Input,
-  Button,
-  HStack,
-} from "native-base";
-
+import { LoginManager, AccessToken } from "react-native-fbsdk-next";
 type LoginStackNavigatorParamList = {
   signup: undefined;
 };
@@ -52,7 +38,7 @@ export default function LoginScreen() {
     }
   };
 
-  const onFacebookButtonPress = async () => {
+  const handleFacebookAuth = async () => {
     try {
       // Attempt login with permissions
       const result = await LoginManager.logInWithPermissions([
@@ -84,90 +70,33 @@ export default function LoginScreen() {
   };
 
   return (
-    <Center w="100%">
-      <Box safeArea p="2" py="8" w="90%" maxW="400">
-        <Heading
-          size="lg"
-          fontWeight="600"
-          color="coolGray.800"
-          _dark={{
-            color: "warmGray.50",
-          }}
-        >
-          PrixGP
-        </Heading>
-        <Heading
-          mt="1"
-          _dark={{
-            color: "warmGray.200",
-          }}
-          color="coolGray.600"
-          fontWeight="medium"
-          size="xs"
-        >
-          Únete nuestro ecosistema digital automotríz.
-        </Heading>
-
-        <VStack space={3} mt="5">
-          <FormControl>
-            <FormControl.Label>Correo electrónico</FormControl.Label>
-            <Input />
-          </FormControl>
-          <FormControl>
-            <FormControl.Label>Contraseña</FormControl.Label>
-            <Input type="password" />
-            <Link
-              _text={{
-                fontSize: "xs",
-                fontWeight: "500",
-                color: "indigo.500",
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Recuperar contraseña
-            </Link>
-          </FormControl>
-          <Button mt="2" colorScheme="lightBlue">
-            Iniciar sesión
-          </Button>
-          <GoogleSigninButton
-            style={{ width: 338, height: 60, marginLeft: -5 }}
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Dark}
-            onPress={handleGoogleAuth}
-          />
-          <LoginButton
-            style={{ width: 333, height: 50 }}
-
-            onLoginFinished={(error, result) => {
-              if (error) {
-                console.log("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                console.log("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then((data) => {
-                  console.log(data.accessToken.toString());
-                });
-              }
-            }}
-            onLogoutFinished={() => console.log("logout.")}
-          />
-          {/* <Button onPress={onFacebookButtonPress}>Acceder con Facebook</Button> */}
-          <HStack mt="6" justifyContent="center">
-            <Link
-              _text={{
-                color: "indigo.500",
-                fontWeight: "medium",
-                fontSize: "sm",
-              }}
-              href="#"
-            >
-              Registrarse
-            </Link>
-          </HStack>
-        </VStack>
-      </Box>
-    </Center>
+    <View style={styles.container}>
+      <LoginForm />
+      <SocialIcon
+        button={true}
+        type="google"
+        iconType="font-awesome"
+        title="Continuar con Google"
+        style={{ width: 330, height: 55 }}
+        onPress={handleGoogleAuth}
+      />
+      <SocialIcon
+        button={true}
+        type="facebook"
+        iconType="font-awesome"
+        title="Continuar con Facebook"
+        style={{ width: 330, height: 55 }}
+        onPress={handleFacebookAuth}
+      />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

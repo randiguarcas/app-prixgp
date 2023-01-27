@@ -8,7 +8,7 @@ import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/SignupScreen";
 
 import { useNavigation } from "@react-navigation/native";
-import { Link } from "native-base";
+import { Text } from "react-native";
 
 type PublicStackNavigatorParamList = {
   home: undefined;
@@ -33,7 +33,7 @@ export default function PublicStack() {
           title: "",
           headerRight: () => {
             return (
-              <Link onPress={() => navigation.navigate("login")}>Ingresar</Link>
+              <Text onPress={() => navigation.navigate("login")}>Ingresar</Text>
             );
           },
         }}
@@ -44,7 +44,7 @@ export default function PublicStack() {
         options={{
           title: "",
           headerLeft: () => {
-            return <Link onPress={() => navigation.goBack()}>Regresar</Link>;
+            return <Text onPress={() => navigation.goBack()}>Regresar</Text>;
           },
         }}
       />
@@ -54,7 +54,7 @@ export default function PublicStack() {
         options={{
           title: "",
           headerLeft: () => {
-            return <Link onPress={() => navigation.goBack()}>Regresar</Link>;
+            return <Text onPress={() => navigation.goBack()}>Regresar</Text>;
           },
         }}
       />
