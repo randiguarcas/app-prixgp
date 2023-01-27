@@ -1,5 +1,5 @@
-import { Text, Button, TextInput, View, StyleSheet } from "react-native";
-import { SocialIcon } from "@rneui/themed";
+import { Text, TextInput, View, StyleSheet } from "react-native";
+import { SocialIcon, Button } from "@rneui/themed";
 import LoginForm from "../components/LoginForm";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -72,30 +72,64 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <LoginForm />
-      <SocialIcon
-        button={true}
-        type="google"
-        iconType="font-awesome"
+      <Button
         title="Continuar con Google"
-        style={{ width: 330, height: 55 }}
+        icon={{
+          name: 'google',
+          type: 'font-awesome',
+          size: 25,
+          color: 'white',
+        }}
+        buttonStyle={{
+          backgroundColor:"#1EB3AE",
+          borderRadius: 10,
+          width: 330,
+          height: 55,
+          padding: 10,
+          marginBottom: 5,
+        }}
+        titleStyle={{
+          fontSize: 15,
+          fontWeight: "bold",
+          color: "#F4F7FB",
+          marginLeft: 10
+        }}
         onPress={handleGoogleAuth}
       />
-      <SocialIcon
-        button={true}
-        type="facebook"
-        iconType="font-awesome"
+      <Button
         title="Continuar con Facebook"
-        style={{ width: 330, height: 55 }}
+        icon={{
+          name: 'facebook',
+          type: 'font-awesome',
+          size: 25,
+          color: 'white',
+        }}
+        buttonStyle={{
+          backgroundColor:"#1EB3AE",
+          borderRadius: 10,
+          width: 330,
+          height: 55,
+          padding: 10,
+          marginBottom: 5,
+        }}
+        titleStyle={{
+          fontSize: 15,
+          fontWeight: "bold",
+          color: "#F4F7FB",
+          marginLeft: 10
+        }}
         onPress={handleFacebookAuth}
       />
     </View>
   );
 }
 
+//2474D5
+//F4F7FB
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "center",
   },

@@ -17,7 +17,7 @@ export default function LoginForm() {
   };
 
   return (
-    <View style={{ width: 330 }}>
+    <View style={styles.containerStyle}>
       <Input placeholder="Correo electrónico" style={styles.inputLoginStyle} />
       <Input
         placeholder="Contraseña"
@@ -26,20 +26,25 @@ export default function LoginForm() {
         rightIcon={{
           type: "font-awesome",
           name: secureTextIcon,
-          size: 18,
+          size: 20,
           color: "#c5c5c5",
           onPress: handleSecureText,
         }}
       />
       <Button
-        title="Continuar con email"
+        title="Iniciar sesión"
         buttonStyle={{
-          borderColor: "white",
-          borderRadius: 30,
+          backgroundColor:"#1EB3AE",
+          borderRadius: 10,
           width: 330,
           height: 55,
           padding: 10,
           marginBottom: 5,
+        }}
+        titleStyle={{
+          fontSize: 15,
+          fontWeight: "bold",
+          color: "#F4F7FB"
         }}
       />
     </View>
@@ -47,6 +52,9 @@ export default function LoginForm() {
 }
 
 const styles = StyleSheet.create({
+  containerStyle: {
+    width: 330
+  },
   inputLoginStyle: {
     fontSize: 14,
   },
