@@ -9,14 +9,15 @@ import {
   statusCodes,
 } from "@react-native-google-signin/google-signin";
 import { LoginManager, AccessToken } from "react-native-fbsdk-next";
+import { Link } from "@react-navigation/native";
 type LoginStackNavigatorParamList = {
   signup: undefined;
 };
 
-type LoginStackNavigationProp = NativeStackNavigationProp<
-  LoginStackNavigatorParamList,
-  "signup"
->;
+// type LoginStackNavigationProp = NativeStackNavigationProp<
+//   LoginStackNavigatorParamList,
+//   "signup"
+// >;
 
 export default function LoginScreen() {
   GoogleSignin.configure({
@@ -75,62 +76,60 @@ export default function LoginScreen() {
       <Button
         title="Continuar con Google"
         icon={{
-          name: 'google',
-          type: 'font-awesome',
+          name: "google",
+          type: "font-awesome",
           size: 25,
-          color: 'white',
+          color: "white",
         }}
-        buttonStyle={{
-          backgroundColor:"#1EB3AE",
-          borderRadius: 10,
-          width: 330,
-          height: 55,
-          padding: 10,
-          marginBottom: 5,
-        }}
-        titleStyle={{
-          fontSize: 15,
-          fontWeight: "bold",
-          color: "#F4F7FB",
-          marginLeft: 10
-        }}
+        buttonStyle={styles.socialButtonStyle}
+        titleStyle={styles.socialButtonTitleStyle}
         onPress={handleGoogleAuth}
       />
       <Button
         title="Continuar con Facebook"
         icon={{
-          name: 'facebook',
-          type: 'font-awesome',
+          name: "facebook",
+          type: "font-awesome",
           size: 25,
-          color: 'white',
+          color: "white",
         }}
-        buttonStyle={{
-          backgroundColor:"#1EB3AE",
-          borderRadius: 10,
-          width: 330,
-          height: 55,
-          padding: 10,
-          marginBottom: 5,
-        }}
-        titleStyle={{
-          fontSize: 15,
-          fontWeight: "bold",
-          color: "#F4F7FB",
-          marginLeft: 10
-        }}
+        buttonStyle={styles.socialButtonStyle}
+        titleStyle={styles.socialButtonTitleStyle}
         onPress={handleFacebookAuth}
       />
+      <Link to="/signup" style={styles.registerLinkStyle}>
+        No tiene una cuenta? Registrate aquí
+      </Link>
     </View>
   );
 }
 
-//2474D5
-//F4F7FB
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "white",
+  },
+  socialButtonStyle: {
+    backgroundColor: "#1EB3AE",
+    borderRadius: 10,
+    width: 330,
+    height: 55,
+    padding: 10,
+    marginBottom: 5,
+  },
+  socialButtonTitleStyle: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#F4F7FB",
+    marginLeft: 10,
+  },
+  registerLinkStyle: {
+    marginTop: 14,
+    fontSize: 12,
+    
+    justifyContent: "flex-end",
+    color: "#1EB3AE",
   },
 });

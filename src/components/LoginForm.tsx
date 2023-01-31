@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { Input, Button } from "@rneui/themed";
 import { useState } from "react";
+import { Link } from "@react-navigation/native";
 
 export default function LoginForm() {
   const [secureText, setSecureText] = useState(true);
@@ -17,12 +18,21 @@ export default function LoginForm() {
   };
 
   return (
-    <View style={styles.containerStyle}>
-      <Input placeholder="Correo electrónico" style={styles.inputLoginStyle} />
+    <View style={styles.container}>
+      <Input
+        placeholder="Correo electrónico"
+        inputStyle={styles.loginInputStyle}
+        inputContainerStyle={styles.loginInputContainerStyle}
+        containerStyle={styles.loginContainerStyle}
+        autoCapitalize="none"
+      />
       <Input
         placeholder="Contraseña"
-        style={styles.inputLoginStyle}
+        inputStyle={styles.loginInputStyle}
+        inputContainerStyle={styles.loginInputContainerStyle}
+        containerStyle={styles.loginContainerStyle}
         secureTextEntry={secureText}
+        autoCapitalize="none"
         rightIcon={{
           type: "font-awesome",
           name: secureTextIcon,
@@ -31,31 +41,63 @@ export default function LoginForm() {
           onPress: handleSecureText,
         }}
       />
+      <Link to="/forgot" style={styles.recoveryLinkStyle}>
+        Recuperar contraseña
+      </Link>
       <Button
         title="Iniciar sesión"
-        buttonStyle={{
-          backgroundColor:"#1EB3AE",
-          borderRadius: 10,
-          width: 330,
-          height: 55,
-          padding: 10,
-          marginBottom: 5,
-        }}
-        titleStyle={{
-          fontSize: 15,
-          fontWeight: "bold",
-          color: "#F4F7FB"
-        }}
+        buttonStyle={styles.loginButtonStyle}
+        titleStyle={styles.loginButtonTitleStyle}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  containerStyle: {
-    width: 330
+  container: {
+    width: 330,
   },
-  inputLoginStyle: {
-    fontSize: 14,
+  loginInputStyle: {
+    fontSize: 15,
+    marginTop: 0,
+  },
+  loginInputContainerStyle: {
+    borderBottomWidth: 0,
+    paddingTop: 4,
+    marginTop: 0,
+  },
+  loginContainerStyle: {
+    borderRadius: 10,
+    borderStyle: "solid",
+    borderTopColor: "#1EB3AE",
+    borderBottomColor: "#1EB3AE",
+    borderLeftColor: "#1EB3AE",
+    borderRightColor: "#1EB3AE",
+    borderTopWidth: 3,
+    borderBottomWidth: 3,
+    borderLeftWidth: 3,
+    borderRightWidth: 3,
+    height: 55,
+    marginTop: 5,
+  },
+  loginButtonStyle: {
+    backgroundColor: "#1EB3AE",
+    borderRadius: 10,
+    width: 330,
+    height: 55,
+    padding: 10,
+    marginBottom: 5,
+    marginTop: 5,
+  },
+  loginButtonTitleStyle: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#F4F7FB",
+  },
+  recoveryLinkStyle: {
+    textAlign: "right",
+    padding: 5,
+    fontSize: 12,
+    color: "#1EB3AE",
   },
 });

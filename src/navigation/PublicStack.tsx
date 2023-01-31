@@ -9,11 +9,13 @@ import SignupScreen from "../screens/SignupScreen";
 
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
+import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
 
 type PublicStackNavigatorParamList = {
   home: undefined;
   login: undefined;
   signup: undefined;
+  forgot: undefined;
 };
 
 type PublicStackNavigationProp =
@@ -51,6 +53,16 @@ export default function PublicStack() {
       <Stack.Screen
         name="signup"
         component={SignupScreen}
+        options={{
+          title: "",
+          headerLeft: () => {
+            return <Text onPress={() => navigation.goBack()}>Regresar</Text>;
+          },
+        }}
+      />
+      <Stack.Screen
+        name="forgot"
+        component={ForgotPasswordScreen}
         options={{
           title: "",
           headerLeft: () => {
