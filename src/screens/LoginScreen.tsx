@@ -1,8 +1,8 @@
-import { Text, TextInput, View, StyleSheet } from "react-native";
-import { SocialIcon, Button } from "@rneui/themed";
+import { Text, View, StyleSheet } from "react-native";
+import { Button } from "@rneui/themed";
 import LoginForm from "../components/LoginForm";
 
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+// import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import auth from "@react-native-firebase/auth";
 import {
   GoogleSignin,
@@ -97,9 +97,12 @@ export default function LoginScreen() {
         titleStyle={styles.socialButtonTitleStyle}
         onPress={handleFacebookAuth}
       />
-      <Link to="/signup" style={styles.registerLinkStyle}>
-        No tiene una cuenta? Registrate aquí
-      </Link>
+      <Text style={styles.registerTextStyle}>
+        No tienes una cuenta?{" "}
+        <Link to="/signup" style={styles.registerLinkStyle}>
+          Registrate aquí
+        </Link>
+      </Text>
     </View>
   );
 }
@@ -125,11 +128,14 @@ const styles = StyleSheet.create({
     color: "#F4F7FB",
     marginLeft: 10,
   },
+  registerTextStyle: {
+    marginTop: 14,
+    fontSize: 12,
+    justifyContent: "flex-end",
+  },
   registerLinkStyle: {
     marginTop: 14,
     fontSize: 12,
-    
-    justifyContent: "flex-end",
     color: "#1EB3AE",
   },
 });
