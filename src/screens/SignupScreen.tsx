@@ -1,9 +1,12 @@
 import { Text, View, StyleSheet } from "react-native";
+import RegisterForm from "../components/RegisterForm";
+import SocialForm from "../components/SocialForm";
 
 export default function SignupScreen() {
   return (
     <View style={styles.container}>
-      <Text>Register screen</Text>
+      <RegisterForm />
+      <SocialForm />
     </View>
   );
 }
