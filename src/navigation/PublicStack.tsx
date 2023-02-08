@@ -33,6 +33,9 @@ export default function PublicStack() {
         component={HomeScreen}
         options={{
           title: "",
+          headerStyle: {
+            backgroundColor: "#1EB3AE",
+          },
           headerRight: () => {
             return (
               <Text onPress={() => navigation.navigate("login")}>Ingresar</Text>

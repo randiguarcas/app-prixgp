@@ -1,13 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { useState } from "react";
-import PublicStackNavigator from "./PublicStack";
+// import PublicStackNavigator from "./PublicStack";
+import AppStackNavigator from "./AppStack";
 
 export default function RootNavigator() {
-  const [user, setUser] = useState();
-
   return (
     <NavigationContainer>
-      <PublicStackNavigator />
+      <AppStackNavigator />
     </NavigationContainer>
   );
 }

@@ -9,7 +9,7 @@ export default function LoginScreen() {
       <LoginForm />
       <SocialForm />
       <Text style={styles.registerTextStyle}>
-        No tienes una cuenta?{" "}
+        ¿No tienes una cuenta?{" "}
         <Link to="/signup" style={styles.registerLinkStyle}>
           Registrate aquí
         </Link>
