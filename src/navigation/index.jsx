@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-// import PublicStackNavigator from "./PublicStack";
-import AppStackNavigator from "./AppStack";
+import AppStackNavigator from "@src/navigation/AppStack";
 
 export default function RootNavigator() {
   return (

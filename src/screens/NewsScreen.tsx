@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function FeedScreen() {
+export default function NewsScreen() {
   return (
     <View>
-      <Text>Feed</Text>
+      <Text>New Screen</Text>
     </View>
   );
 }

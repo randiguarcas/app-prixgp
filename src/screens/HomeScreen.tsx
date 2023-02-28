@@ -1,29 +1,34 @@
-import { View, StyleSheet, StatusBar, Text } from "react-native";
-import ItemCard from "../components/ItemCard";
-import cars from "../components/inventory";
+import { useFonts } from "expo-font";
+import { Icon } from "@rneui/themed";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import FeedScreen from "./FeedScreen";
-import AccesoriesScreen from "./AccesoriesScreen";
+
+import InventoryScreen from "@src/screens/InventoryScreen";
+import ProductsScreen from "@src/screens/ProductsScreen";
+import VinScreen from "@src/screens/VinScreen";
+import NewsScreen from "@src/screens/NewsScreen";
+
 const Tab = createMaterialTopTabNavigator();
 
 export default function HomeScreen() {
+  const [fontsLoaded] = useFonts({
+    "OpenSans-Light": require("../../assets/fonts/OpenSans-Light.ttf"),
+    "OpenSans-Medium": require("../../assets/fonts/OpenSans-Medium.ttf"),
+  });
+
   return (
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
         tabBarActiveTintColor: "#1EB3AE",
-        tabBarInactiveTintColor: "#C7C7C7",
+        tabBarInactiveTintColor: "#7a7876",
         tabBarLabelStyle: {
           fontSize: 12,
           textTransform: "none",
-          borderColor: "yellow",
-          textDecorationColor: "yellow",
-          borderBottomColor: "yellow",
+          fontFamily: "OpenSans-Medium",
         },
-        tabBarItemStyle: { borderBottomColor: "yellow" },
         tabBarContentContainerStyle: {
-          borderBottomColor: "yellow",
-          borderColor: "yellow",
+          paddingBottom: 8,
+          marginTop: 8,
         },
         tabBarIndicatorStyle: {
           backgroundColor: "#1EB3AE",
@@ -31,39 +36,45 @@ export default function HomeScreen() {
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={FeedScreen}
-        options={{ tabBarLabel: "Predio virtual" }}
+        name="Inventory"
+        component={InventoryScreen}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Icon type="font-awesome" name="car" color={color} size={20} />
+          ),
+        }}
       />
       <Tab.Screen
         name="Accesories"
-        component={AccesoriesScreen}
-        options={{ tabBarLabel: "Accesorios" }}
+        component={ProductsScreen}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Icon type="feather" name="shopping-bag" color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Vin"
+        component={VinScreen}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Icon type="feather" name="file-text" color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="News"
+        component={NewsScreen}
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Icon type="feather" name="globe" color={color} />
+          ),
+        }}
       />
     </Tab.Navigator>
-    // return (
-    //   <View>
-    //     <StatusBar backgroundColor="#1EB3AE" />
-    //     <Text style={{
-    //       padding: 5,
-    //       fontSize: 14,
-    //       fontWeight: '800',
-    //     }}>Agregados recientemente</Text>
-    //     <View style={styles.container}>
-    //       {cars.map((car) => {
-    //         return <ItemCard key={car.id} item={car}></ItemCard>;
-    //       })}
-    //     </View>
-    //   </View>
-    // );
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flexDirection: "row",
-//     flexWrap: "wrap",
-//     justifyContent: "space-around",
-//     backgroundColor: "white",
-//   },
-// });

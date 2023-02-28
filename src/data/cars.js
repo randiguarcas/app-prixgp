@@ -1,6 +1,6 @@
 const data = [
   {
-    id: 1,
+    id: "1",
     brand: "Volkswagen",
     model: "Jetta",
     year: "2004",
@@ -10,7 +10,7 @@ const data = [
     transmition: "Manual",
   },
   {
-    id: 2,
+    id: "2",
     brand: "Audi",
     model: "A3 Sline",
     year: "2008",
@@ -20,27 +20,27 @@ const data = [
     transmition: "Automatic",
   },
   {
-    id: 3,
+    id: "3",
     brand: "Mazda",
     model: "3",
     year: "2012",
-    img: "https://images.bid.cars/35624126_63da3f53ea27d/2011-Mazda-3-JM1BL1UG7B1495274-1.jpg",
+    img: "https://media.carsandbids.com/cdn-cgi/image/width=1800,quality=70/da4b9237bacccdf19c0760cab7aec4a8359010b0/photos/BumGEAelV2-2.nBkIKQwvg.jpg",
     price: 25000,
     vin: "12345678900001",
     transmition: "Manual",
   },
   {
-    id: 4,
+    id: "4",
     brand: "Toyota",
     model: "4Runner, SRE",
     year: "2006",
-    img: "https://images.bid.cars/35656602_63da3d94c4281/2006-Toyota-4runner-JTEBU14R268073503-1.jpg",
+    img: "https://media.carsandbids.com/cdn-cgi/image/width=1800,quality=70/7a0a3c6148108c9c64425dd85e0181fa3cccb652/photos/KV7oQ8ak-TvQ10AIRSt-(edit).jpg",
     price: 25000,
     vin: "12345678900001",
     transmition: "Manual",
   },
   {
-    id: 5,
+    id: "5",
     brand: "Volskwagen",
     model: "GTI",
     year: "2012",
@@ -50,7 +50,7 @@ const data = [
     transmition: "Manual",
   },
   {
-    id: 6,
+    id: "6",
     brand: "F-150 Raptor",
     model: "Ford",
     year: "2021",

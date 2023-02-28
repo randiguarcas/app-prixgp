@@ -1,15 +1,14 @@
+import { Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
 
-import HomeScreen from "../screens/HomeScreen";
-import LoginScreen from "../screens/LoginScreen";
-import SignupScreen from "../screens/SignupScreen";
-
-import { useNavigation } from "@react-navigation/native";
-import { Text } from "react-native";
-import ForgotPasswordScreen from "../screens/ForgotPasswordScreen";
+import HomeScreen from "@src/screens/HomeScreen";
+import LoginScreen from "@src/screens/LoginScreen";
+import SignupScreen from "@src/screens/SignupScreen";
+import ForgotPasswordScreen from "@src/screens/ForgotPasswordScreen";
 
 type PublicStackNavigatorParamList = {
   home: undefined;
